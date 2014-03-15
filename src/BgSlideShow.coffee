@@ -21,11 +21,19 @@ class window.BgSlideShow
   injected: false
 
 
+  #
+  setBindings: ->
+    window.onresize = ()  =>
+      setStyle @element
+      setStyle @element2
+
+
   # the 2 divs for the background-classes will be injected to the DOM
   inject: ->
     # we only need to do it once
     if @injected is false
       @injected = true
+      @setBindings()
       # finding body
       body = document.getElementsByTagName("body")[0]
       # create the 2 divs
@@ -43,8 +51,8 @@ class window.BgSlideShow
 
   setStyle = (el) ->
     # available width and height of the screen
-    width = screen.availWidth
-    height = screen.availHeight
+    width = window.innerWidth
+    height = window.innerHeight
     # setting styles and classnames to the element
     el.style.position = "fixed"
     el.style.width = "#{width}px"
@@ -74,7 +82,7 @@ class window.BgSlideShow
   # waits for the given time and then calls @animate
   timeOutAnimate: (wait) ->
     f = => @animationLoop();
-    window.setTimeout(f, wait)
+    window.setTimeout f, wait
 
   # set the class to element and fadeOut to the other element
   setClass: (classname) ->

@@ -1,37 +1,37 @@
-.animated {
+.bgss-animated {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-@-webkit-keyframes fadeIn {
+@-webkit-keyframes bgssFadeIn {
   0% {
     opacity: 0; }
 
   100% {
     opacity: 1; } }
-@keyframes fadeIn {
+@keyframes bgssFadeIn {
   0% {
     opacity: 0; }
 
   100% {
     opacity: 1; } }
-.fadeIn {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn; }
+.bgssFadeIn {
+  -webkit-animation-name: bgssFadeIn;
+  animation-name: bgssFadeIn; }
 
-@-webkit-keyframes fadeOut {
+@-webkit-keyframes bgssFadeOut {
   0% {
     opacity: 1; }
 
   100% {
     opacity: 0; } }
-@keyframes fadeOut {
+@keyframes bgssFadeOut {
   0% {
     opacity: 1; }
 
   100% {
     opacity: 0; } }
-.fadeOut {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut; }
+.bgssFadeOut {
+  -webkit-animation-name: bgssFadeOut;
+  animation-name: bgssFadeOut; }

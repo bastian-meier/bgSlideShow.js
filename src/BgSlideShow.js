@@ -23,10 +23,20 @@
 
     BgSlideShow.prototype.injected = false;
 
+    BgSlideShow.prototype.setBindings = function() {
+      return window.onresize = (function(_this) {
+        return function() {
+          setStyle(_this.element);
+          return setStyle(_this.element2);
+        };
+      })(this);
+    };
+
     BgSlideShow.prototype.inject = function() {
       var body;
       if (this.injected === false) {
         this.injected = true;
+        this.setBindings();
         body = document.getElementsByTagName("body")[0];
         this.element = document.createElement("div");
         this.element2 = document.createElement("div");
@@ -40,8 +50,8 @@
 
     setStyle = function(el) {
       var height, width;
-      width = screen.availWidth;
-      height = screen.availHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
       el.style.position = "fixed";
       el.style.width = "" + width + "px";
       el.style.height = "" + height + "px";
