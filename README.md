@@ -16,9 +16,8 @@ You can use:
 
 ## Usage
 
-include the js and the css files
+include the js file
 ```html
-<link href="BgSlideShow.min.css" rel="stylesheet" />
 <script src="BgSlideShow.min.js"></script>
 ```
 
@@ -51,20 +50,30 @@ define your background-classes, for example
 ```
 
 tell BgSlideShow.js what to do
+the first argument is an array of objects with this key - value pairs:
 * **className**: the name of the background-class you defined
-* **duration**: how long the class should be active (in ms)
+* **duration**: how long the class should be active in seconds
+the second argument is the config:
+* **animationDuration**: the duration of the fadeIn animation in sedonds
 ```js
 var bg = new BgSlideShow([
-    {className: 'bg-image', duration: 4000},
-    {className: 'bg-color', duration: 4000},
-    {className: 'bg-css3-gradient', duration: 4000}
-]);
+    {className: 'bg-image', duration: 10},
+    {className: 'bg-color', duration: 5},
+    {className: 'bg-css3-gradient', duration: 10}
+], {animationDuration: 2});
 ```
 
 you can also add a single object
 ```js
 var bg = new BgSlideShow();
-bg.addAnimation({className: 'bg-image-repeat', duration: 4000});
+bg.addAnimation({className: 'bg-image-repeat', duration: 10});
+```
+
+start/stop methods
+with start() and stop() you can stop and start the animation loop
+```js
+bg.start();
+bg.stop();
 ```
 
 ## License

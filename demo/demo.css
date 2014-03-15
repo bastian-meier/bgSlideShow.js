@@ -35,6 +35,29 @@ a:hover
 }
 
 
+button {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin: 0 0px 5px 0px;
+    text-align: center;
+    font-weight: bold;
+    background: #f7f7f7;
+    background: -moz-linear-gradient(top, #ffffff 0%, #e8e8e8 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e8e8e8));
+    background: -webkit-linear-gradient(top, #ffffff 0%,#e8e8e8 100%);
+    background: -o-linear-gradient(top, #ffffff 0%,#e8e8e8 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%,#e8e8e8 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,#e8e8e8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e8e8',GradientType=0 );
+}
+
+button:hover {
+    background: #fff;
+    border: 1px solid #aaa;
+}
+
 
 #page{
     background-color: rgba(255, 255, 255, 0.9);

@@ -1,17 +1,22 @@
 class window.BgSlideShow
 
+  # the config
+  bgssConfig: {
+    animationDuration: 1
+  }
 
   # the constructor takes an array of objects like this:
   # {className: 'bg-class-name', duration: 4000}
   # duration in ms
-  constructor: (animations = []) ->
+  constructor: (animations = [], config = {}) ->
 
     # init vars
     @animations = []
     @animationCounter = 0
     for animation in animations
       @addAnimation(animation)
-
+    for key, value of config
+      @bgssConfig[key] = value
 
   # you can also set a single object
   addAnimation: (obj) ->
@@ -21,11 +26,11 @@ class window.BgSlideShow
   injected: false
 
 
-  #
+  # sets bindings to important events
   setBindings: ->
     window.onresize = ()  =>
-      setStyle @element
-      setStyle @element2
+      setSize @element
+      setSize @element2
 
 
   # the 2 divs for the background-classes will be injected to the DOM
@@ -45,22 +50,44 @@ class window.BgSlideShow
       # set css styles to the elements
       setStyle @element
       setStyle @element2
-      # and fire the initial animationLoop() call
-      @animationLoop()
+      # and start the animation loop
+      # creating style tag
+      style = document.createElement "style"
+      style.id = "bg-slide-show-style"
+      style.innerHTML = '@-webkit-keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}}@keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}}.bgssFadeIn{-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:bgssFadeIn;animation-name:bgssFadeIn}'
+      # append style tag to head
+      document.getElementsByTagName("head")[0].appendChild style
+      # start the animation loop
+      @start()
 
-
+  # set style of the elements on init
   setStyle = (el) ->
-    # available width and height of the screen
-    width = window.innerWidth
-    height = window.innerHeight
+    setSize(el)
     # setting styles and classnames to the element
     el.style.position = "fixed"
-    el.style.width = "#{width}px"
-    el.style.height = "#{height}px"
     el.style.top = 0
     el.style.left = 0
     el.style.zIndex = -999
-    el.className = "animated null fadeIn"
+    el.className = "bgssFadeIn"
+
+
+  # set size of the elements on init and on window.resize
+  setSize = (el) ->
+    # available width and height of the screen
+    width = window.innerWidth
+    height = window.innerHeight
+    el.style.width = "#{width}px"
+    el.style.height = "#{height}px"
+
+  # method for stoping the animation loop
+  stop: ->
+    @animationLoopDisabled = true;
+
+
+  # 're'starts the animation loop
+  start: ->
+    @animationLoopDisabled= false;
+    @animationLoop()
 
 
   # loops through the animations array
@@ -68,21 +95,22 @@ class window.BgSlideShow
   # and calls the timeOutanimate funtion with
   # the duration of the current object
   animationLoop: ->
-    # coumpute the index of the next element to change to
-    index = @animationCounter % @animations.length
-    @animationCounter++
+    if @animationLoopDisabled is false
+      # coumpute the index of the next element to change to
+      index = @animationCounter % @animations.length
+      @animationCounter++
 
-    # set the class to the element and fades the other element out
-    @setClass(@animations[index].className)
+      # set the class to the element and fades the other element out
+      @setClass(@animations[index].className)
 
-    # waits for the given time and then calls @animate
-    @timeOutAnimate(@animations[index].duration)
+      # waits for the given time and then calls @animate
+      @timeOutAnimate(@animations[index].duration)
 
 
   # waits for the given time and then calls @animate
   timeOutAnimate: (wait) ->
     f = => @animationLoop();
-    window.setTimeout f, wait
+    window.setTimeout f, wait * 1000
 
   # set the class to element and fadeOut to the other element
   setClass: (classname) ->
@@ -95,6 +123,11 @@ class window.BgSlideShow
       fadeOutElement = @element2
 
     # sets the new background-class
-    fadeInElement.className = "animated #{classname} fadeIn"
-    # changes 'fadeIn' to 'fadeOut' for the 'fadeOutElement'
-    fadeOutElement.className = "animated #{fadeOutElement.className.split(' ')[1]} fadeOut"
+    fadeInElement.className = "#{classname} bgssFadeIn"
+    fadeInElement.style.zIndex = -999
+    fadeInElement.style.webkitAnimationDuration = "#{@bgssConfig.animationDuration}s"
+    fadeInElement.style.AnimationDuration = @bgssConfig.animationDuration
+
+    # move the element under fadeInElement
+    fadeOutElement.className = fadeOutElement.className.split(' ')[0]
+    fadeOutElement.style.zIndex = -1000
