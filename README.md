@@ -1,7 +1,7 @@
 bgSlideShow.js
 ==============
 
-tiny background slideshow without dependencies and **less than 3kb filesize**
+tiny background slideshow without dependencies and **less than 3kb filesize**  
 It works with css-classes you define yourself, so it is very flexible.
 You can use:
 
