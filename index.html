@@ -32,7 +32,6 @@
         }
     </style>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700|Lobster+Two:700' rel='stylesheet' type='text/css'>
-    <link href="https://raw.github.com/bastian-meier/bgSlideShow.js/master/src/BgSlideShow.min.css" rel="stylesheet" />
     <link href="demo.css" rel="stylesheet" />
 </head>
 
@@ -56,10 +55,9 @@
         <p>
             <a href="https://github.com/bastian-meier/bgSlideShow.js">View on GitHub</a>
         </p>
-        <h3>include the js and the css files:</h3>
+        <h3>include the js file:</h3>
         <pre>
-            <a name="l36"><span class="ln">1   </span></a>    </span><span class="s1">&lt;link </span><span class="s2">href=</span><span class="s3">&quot;BgSlideShow.min.css&quot; </span><span class="s2">rel=</span><span class="s3">&quot;stylesheet&quot; </span><span class="s1">/&gt;</span><span class="s0">
-            <a name="l37"><span class="ln">2   </span></a>    </span><span class="s1">&lt;script </span><span class="s2">src=</span><span class="s3">&quot;BgSlideShow.min.js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span></pre>
+            <span class="s1">&lt;script </span><span class="s2">src=</span><span class="s3">&quot;BgSlideShow.min.js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span></pre>
         </pre>
         <h3>define your background-classes, for example:</h3>
         <pre>
@@ -83,41 +81,63 @@
             <a name="l18"><span class="ln">18   </span></a>}</span></pre>
         </pre>
         <h3>tell BgSlideShow.js what to do:</h3>
+        <p><b>the first argument is an array of objects with this key - value pairs:</b></p>
+        <ul>
+            <li>
+                <b>className</b>: the name of the background-class you defined<br>
+            </li>
+            <li>
+                <b>duration</b>: how long the class should be active in seconds
+            </li>
+        </ul>
         <p>
-            <b>className</b>: the name of the background-class you defined<br>
-            <b>duration</b>: how long the class should be active (in ms)
+            <b>the second argument is the config:</b>
         </p>
+        <ul>
+            <li>
+                <b>animationDuration</b>: the duration of the fadeIn animation in sedonds
+            </li>
+        </ul>
             <pre>
             <span class="s0">
-            <a name="l72"><span class="ln">72   </span></a>    </span><span class="s1">&lt;script&gt;</span><span class="s0">
-            <a name="l73"><span class="ln">73   </span></a>        window.onload = </span><span class="s2">function </span><span class="s0">()
-            <a name="l74"><span class="ln">74   </span></a>        {
-            <a name="l75"><span class="ln">75   </span></a>            </span><span class="s2">var </span><span class="s0">bg = </span><span class="s2">new </span><span class="s0">BgSlideShow([
-            <a name="l76"><span class="ln">76   </span></a>                {className: </span><span class="s3">'bg-image'</span><span class="s4">, </span><span class="s0">duration: </span><span class="s5">4000</span><span class="s0">}</span><span class="s4">,</span><span class="s0">
-            <a name="l77"><span class="ln">77   </span></a>                {className: </span><span class="s3">'bg-color'</span><span class="s4">, </span><span class="s0">duration: </span><span class="s5">4000</span><span class="s0">}</span><span class="s4">,</span><span class="s0">
-            <a name="l78"><span class="ln">78   </span></a>                {className: </span><span class="s3">'bg-css3-gradient'</span><span class="s4">, </span><span class="s0">duration: </span><span class="s5">4000</span><span class="s0">}
-            <a name="l79"><span class="ln">79   </span></a>            ])</span><span class="s4">;</span><span class="s0">
-            <a name="l81"><span class="ln">81   </span></a>        }
-            <a name="l82"><span class="ln">82   </span></a>    </span><span class="s1">&lt;/script&gt;
-            </span>
-            </pre>
-        <h3>you can also bind a single objects:</h3>
+                <a name="l122"><span class="ln">122  </span></a>            </span><span class="s1">var </span><span class="s0">bg = </span><span class="s1">new </span><span class="s0">BgSlideShow([
+                <a name="l123"><span class="ln">123  </span></a>                {className: </span><span class="s2">'bg-image'</span><span class="s3">, </span><span class="s0">duration: </span><span class="s4">10</span><span class="s0">}</span><span class="s3">,</span><span class="s0">
+                <a name="l124"><span class="ln">124  </span></a>                {className: </span><span class="s2">'bg-color'</span><span class="s3">, </span><span class="s0">duration: </span><span class="s4">5</span><span class="s0">}</span><span class="s3">,</span><span class="s0">
+                <a name="l125"><span class="ln">125  </span></a>                {className: </span><span class="s2">'bg-css3-gradient'</span><span class="s3">, </span><span class="s0">duration: </span><span class="s4">10</span><span class="s0">}
+                <a name="l126"><span class="ln">126  </span></a>            ]</span><span class="s3">, </span><span class="s0">{animationDuration: </span><span class="s4">3</span><span class="s0">})</span><span class="s3">;</span></pre>
+        <h3>you can also bind single objects:</h3>
         <pre>
-            <pan class="s0">
-            <a name="l80"><span class="ln">80   </span></a>            bg.addAnimation({className: </span><span class="s3">'bg-image-repeat'</span><span class="s4">, </span><span class="s0">duration: </span><span class="s5">4000</span><span class="s0">})</span><span class="s4">;</span>
-            </pan>
+            <pan class="s0">bg.addAnimation({className: </span><span class="s3">'bg-image-repeat'</span><span class="s4">, </span><span class="s0">duration: </span><span class="s5">10</span><span class="s0">})</span><span class="s4">;</span></pan>
         </pre>
+        <h3>start stop methods</h3>
+        <p>
+            the animation starts on class initialisation<br>
+            but there are startLoop() and stopLoop() methods available.
+        </p>
+        <pre>
+            <span class="s0">bg.start()</span><span class="s1">;
+            </span>
+            <span class="s0">bg.stop()</span><span class="s1">;</span>
+        </pre>
+        <button id="stop">stop BgSlideShow</button>
+        <button id="start">start BgSlideShow</button>
     </div>
-    <script type="text/javascript" src="BgSlideShow.min.js"></script>
+    <script src="BgSlideShow.min.js"></script>
     <script>
-        window.onload = function ()
-        {
+        window.onload = function () {
             var bg = new BgSlideShow([
-                {className: 'bg-image', duration: 4000},
-                {className: 'bg-color', duration: 4000},
-                {className: 'bg-css3-gradient', duration: 4000}
-            ]);
-            bg.addAnimation({className: 'bg-image-repeat', duration: 4000});
+                {className: 'bg-image', duration: 10},
+                {className: 'bg-color', duration: 5},
+                {className: 'bg-css3-gradient', duration: 10}
+            ], {animationDuration: 3});
+            bg.addAnimation({className: 'bg-image-repeat', duration: 10});
+
+            document.getElementById('start').onclick = function() {
+                bg.start();
+            }
+            document.getElementById('stop').onclick = function () {
+                bg.stop();
+            }
         }
     </script>
 </body>
