@@ -1,0 +1,120 @@
+<html>
+<head>
+    <title>BgSlideShow.js</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="BgSlideShow.js, javascript, js, github, Bastian Meier, Bastian, Meier">
+    <meta name="description" content="simple background slideshow without dependencies and less than 3kb filesize">
+    <link rel="icon" href="http://bastianmeier.de/img/favicon.png" type="image/x-icon">
+    <style type="text/css">
+        .bg-image{
+            background: url(img/bg-image.jpg);
+            background-size: cover;
+        }
+
+        .bg-css3-gradient{
+            background: #f0b7a1; /* Old browsers */
+            background: -moz-linear-gradient(-45deg, #f0b7a1 0%, #8c3310 50%, #752201 51%, #bf6e4e 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#f0b7a1), color-stop(50%,#8c3310), color-stop(51%,#752201), color-stop(100%,#bf6e4e)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(-45deg, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(-45deg, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(-45deg, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%); /* IE10+ */
+            background: linear-gradient(135deg, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#bf6e4e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        }
+
+        .bg-image-repeat{
+            background: url(img/bg-image-repeat.jpg);
+            background-repeat: repeat;
+        }
+
+        .bg-color{
+            background-color: #3B3627;
+        }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700|Lobster+Two:700' rel='stylesheet' type='text/css'>
+    <link href="../src/BgSlideShow.min.css" rel="stylesheet" />
+    <link href="demo.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="page">
+        <h1> BgSlideShow.js </h1>
+        <h3>simple background slideshow without dependencies and <span>less than 3kb</span> filesize</h3>
+        <p>
+            A very simple script for creating Background-slideshows.<br/>
+            It is base on css-classes you define yourself, so it is very flexible.<br/>
+            You can use:
+            <ul>
+                <li>Fullsize background-images</li>
+                <li>tiled background-images</li>
+                <li>background-color</li>
+                <li>css3 background-gradients</li>
+            </ul>
+        </p>
+
+        <h3>include the js and the css files:</h3>
+        <pre>
+            <a name="l36"><span class="ln">1   </span></a>    </span><span class="s1">&lt;link </span><span class="s2">href=</span><span class="s3">&quot;BgSlideShow.min.css&quot; </span><span class="s2">rel=</span><span class="s3">&quot;stylesheet&quot; </span><span class="s1">/&gt;</span><span class="s0">
+            <a name="l37"><span class="ln">2   </span></a>    </span><span class="s1">&lt;script </span><span class="s2">src=</span><span class="s3">&quot;BgSlideShow.min.js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span></pre>
+        </pre>
+        <h3>define your background-classes, for example:</h3>
+        <pre>
+            <a name="l1"><span class="ln">1    </span></a><span class="s0">.</span><span class="s1">bg-image</span><span class="s0">{
+            <a name="l2"><span class="ln">2    </span></a>    </span><span class="s2">background</span><span class="s0">: </span><span class="s1">url</span><span class="s0">(</span><span class="s3">img/bg-image.jpg</span><span class="s0">);
+            <a name="l3"><span class="ln">3    </span></a>    </span><span class="s2">background-size</span><span class="s0">: cover;
+            <a name="l4"><span class="ln">4    </span></a>}
+            <a name="l5"><span class="ln">5    </span></a>
+            <a name="l6"><span class="ln">6    </span></a>.</span><span class="s1">bg-css3-gradient</span><span class="s0">{
+            <a name="l7"><span class="ln">7    </span></a>    </span><span class="s2">background</span><span class="s0">: </span><span class="s1">-moz-linear-gradient</span><span class="s0">(top, </span><span class="s4">#9DBAF8</span><span class="s0">, </span><span class="s4">#757575</span><span class="s0">);
+            <a name="l8"><span class="ln">8    </span></a>    </span><span class="s2">background</span><span class="s0">: </span><span class="s1">-webkit-gradient</span><span class="s0">(</span><span class="s1">linear</span><span class="s0">, left top, left bottom, </span><span class="s1">from</span><span class="s0">(</span><span class="s4">#757575</span><span class="s0">), </span><span class="s1">to</span><span class="s0">(</span><span class="s4">#9DBAF8</span><span class="s0">));
+            <a name="l9"><span class="ln">9    </span></a>}
+            <a name="l10"><span class="ln">10   </span></a>
+            <a name="l11"><span class="ln">11   </span></a>.</span><span class="s1">bg-image-repeat</span><span class="s0">{
+            <a name="l12"><span class="ln">12   </span></a>    </span><span class="s2">background</span><span class="s0">: </span><span class="s1">url</span><span class="s0">(</span><span class="s3">img/bg-image-repeat.jpg</span><span class="s0">);
+            <a name="l13"><span class="ln">13   </span></a>    </span><span class="s2">background-repeat</span><span class="s0">: repeat;
+            <a name="l14"><span class="ln">14   </span></a>}
+            <a name="l15"><span class="ln">15   </span></a>
+            <a name="l16"><span class="ln">16   </span></a>.</span><span class="s1">bg-color</span><span class="s0">{
+            <a name="l17"><span class="ln">17   </span></a>    </span><span class="s2">background-color</span><span class="s0">: </span><span class="s4">#777</span><span class="s0">;
+            <a name="l18"><span class="ln">18   </span></a>}</span></pre>
+        </pre>
+        <h3>tell BgSlideShow.js what to do:</h3>
+        <p>
+            <b>className</b>: the name of the background-class you defined<br>
+            <b>duration</b>: how long the class should be active (in ms)
+        </p>
+            <pre>
+            <span class="s0">
+            <a name="l72"><span class="ln">72   </span></a>    </span><span class="s1">&lt;script&gt;</span><span class="s0">
+            <a name="l73"><span class="ln">73   </span></a>        window.onload = </span><span class="s2">function </span><span class="s0">()
+            <a name="l74"><span class="ln">74   </span></a>        {
+            <a name="l75"><span class="ln">75   </span></a>            </span><span class="s2">var </span><span class="s0">bg = </span><span class="s2">new </span><span class="s0">BgSlideShow([
+            <a name="l76"><span class="ln">76   </span></a>                {className: </span><span class="s3">'bg-image'</span><span class="s4">, </span><span class="s0">duration: </span><span class="s5">4000</span><span class="s0">}</span><span class="s4">,</span><span class="s0">
+            <a name="l77"><span class="ln">77   </span></a>                {className: </span><span class="s3">'bg-color'</span><span class="s4">, </span><span class="s0">duration: </span><span class="s5">4000</span><span class="s0">}</span><span class="s4">,</span><span class="s0">
+            <a name="l78"><span class="ln">78   </span></a>                {className: </span><span class="s3">'bg-css3-gradient'</span><span class="s4">, </span><span class="s0">duration: </span><span class="s5">4000</span><span class="s0">}
+            <a name="l79"><span class="ln">79   </span></a>            ])</span><span class="s4">;</span><span class="s0">
+            <a name="l81"><span class="ln">81   </span></a>        }
+            <a name="l82"><span class="ln">82   </span></a>    </span><span class="s1">&lt;/script&gt;
+            </span>
+            </pre>
+        <h3>you can also bind a single object:</h3>
+        <pre>
+            <pan class="s0">
+            <a name="l80"><span class="ln">80   </span></a>            bg.addAnimation({className: </span><span class="s3">'bg-image-repeat'</span><span class="s4">, </span><span class="s0">duration: </span><span class="s5">4000</span><span class="s0">})</span><span class="s4">;</span>
+            </pan>
+        </pre>
+    </div>
+    <script src="../src/BgSlideShow.min.js"></script>
+    <script>
+        window.onload = function ()
+        {
+            var bg = new BgSlideShow([
+                {className: 'bg-image', duration: 4000},
+                {className: 'bg-color', duration: 4000},
+                {className: 'bg-css3-gradient', duration: 4000}
+            ]);
+            bg.addAnimation({className: 'bg-image-repeat', duration: 4000});
+        }
+    </script>
+</body>
+</html>
