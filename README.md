@@ -14,6 +14,9 @@ You can use:
 ## Demo
 [demo](http://bastian-meier.github.io/bgSlideShow.js/)
 
+## Changelog
+[changelop](https://github.com/bastian-meier/bgSlideShow.js/blob/master/CHANGELOG.md)
+
 ## Usage
 
 include the js file
