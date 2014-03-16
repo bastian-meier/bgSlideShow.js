@@ -6,7 +6,11 @@
     "type": "git",
     "url": "git://github.com/bastian-meier/bgSlideShow.js.git"
   },
-  "author": "Bastian Meier",
+  "author": {
+      "name" : "Bastian Meier",
+      "email" : "post@bastianmeier.de",
+      "url" : "http://bastianmeier.de"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bastian-meier/bgSlideShow.js/issues"
