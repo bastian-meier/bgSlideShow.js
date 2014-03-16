@@ -21,10 +21,17 @@ module.exports = function (grunt) {
                 src: 'src/BgSlideShow.js',
                 dest: 'dist/BgSlideShow.min.js'
             }
+        },
+        'gh-pages': {
+            options: {
+                base: 'demo'
+            },
+            src: ['**']
         }
     });
     grunt.loadNpmTasks('grunt-coffeelint');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-gh-pages');
     grunt.registerTask('default', ['coffeelint', 'coffee', 'uglify']);
 }
