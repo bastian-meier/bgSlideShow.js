@@ -6,7 +6,8 @@ completed css in javascript file. it gets inserted in a head style tag at init.
 
 ## 0.0.3
 animation method changed, the new element is now allways above the old object
-This results in a smoother animation we need just to animate one element
+This results in a smoother animation.
+It needs just to animate one element.
 
 ## 0.0.2
 start() and stop() methods added
