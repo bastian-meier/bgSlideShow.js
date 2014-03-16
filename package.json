@@ -1,0 +1,20 @@
+{
+  "name": "BgSlideShow.js",
+  "version": "0.1.0",
+  "description": "tiny Background Slide Show",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bastian-meier/bgSlideShow.js.git"
+  },
+  "author": "Bastian Meier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bastian-meier/bgSlideShow.js/issues"
+  },
+  "homepage": "https://github.com/bastian-meier/bgSlideShow.js",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-coffee": "^0.10.1"
+  }
+}
