@@ -7,9 +7,9 @@
     "url": "git://github.com/bastian-meier/bgSlideShow.js.git"
   },
   "author": {
-      "name" : "Bastian Meier",
-      "email" : "post@bastianmeier.de",
-      "url" : "http://bastianmeier.de"
+    "name": "Bastian Meier",
+    "email": "post@bastianmeier.de",
+    "url": "http://bastianmeier.de"
   },
   "license": "MIT",
   "bugs": {
@@ -19,6 +19,7 @@
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-contrib-uglify": "^0.4.0",
-    "grunt-contrib-coffee": "^0.10.1"
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-coffeelint": "0.0.8"
   }
 }

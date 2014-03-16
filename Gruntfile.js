@@ -2,6 +2,9 @@
 module.exports = function (grunt) {
     //noinspection JSUnresolvedFunction
     grunt.initConfig({
+        coffeelint: {
+            app: ['src/*.coffee']
+        },
         coffee: {
             compileWithMaps: {
                 options: {
@@ -20,7 +23,8 @@ module.exports = function (grunt) {
             }
         }
     });
+    grunt.loadNpmTasks('grunt-coffeelint');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('default', ['coffee', 'uglify']);
+    grunt.registerTask('default', ['coffeelint', 'coffee', 'uglify']);
 }
