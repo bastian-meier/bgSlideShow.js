@@ -1,4 +1,4 @@
-bgSlideShow.js
+BgSlideShow.js
 ==============
 
 tiny background slideshow without dependencies and **less than 3kb filesize**
@@ -15,7 +15,7 @@ You can use:
 [demo](http://bastian-meier.github.io/bgSlideShow.js/)
 
 ## Changelog
-[changelop](https://github.com/bastian-meier/bgSlideShow.js/blob/master/CHANGELOG.md)
+[changelog](https://github.com/bastian-meier/bgSlideShow.js/blob/master/CHANGELOG.md)
 
 ## Usage
 
