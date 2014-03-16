@@ -56,7 +56,7 @@
         setStyle(this.element2);
         style = document.createElement("style");
         style.id = "bg-slide-show-style";
-        style.innerHTML = '@-webkit-keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}}@keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}}.bgssFadeIn{-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:bgssFadeIn;animation-name:bgssFadeIn}';
+        style.innerHTML = '@-webkit-keyframes bgssFadeIn{0%{opacity:0} 100%{opacity:1}}@keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}} .bgssFadeIn{-webkit-animation-fill-mode:both;animation-fill-mode:both; -webkit-animation-name:bgssFadeIn;animation-name:bgssFadeIn}';
         document.getElementsByTagName("head")[0].appendChild(style);
         return this.start();
       }

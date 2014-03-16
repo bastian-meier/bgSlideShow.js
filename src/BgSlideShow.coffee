@@ -56,7 +56,10 @@ class window.BgSlideShow
       style = document.createElement "style"
       style.id = "bg-slide-show-style"
       # all the neede css code gets inserted
-      style.innerHTML = '@-webkit-keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}}@keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}}.bgssFadeIn{-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:bgssFadeIn;animation-name:bgssFadeIn}'
+      style.innerHTML = '@-webkit-keyframes bgssFadeIn{0%{opacity:0}
+        100%{opacity:1}}@keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}}
+        .bgssFadeIn{-webkit-animation-fill-mode:both;animation-fill-mode:both;
+        -webkit-animation-name:bgssFadeIn;animation-name:bgssFadeIn}'
       # append style tag to head
       document.getElementsByTagName("head")[0].appendChild style
       # start the animation loop
@@ -83,12 +86,12 @@ class window.BgSlideShow
 
   # method for stoping the animation loop
   stop: ->
-    @animationLoopDisabled = true;
+    @animationLoopDisabled = true
 
 
   # 're'starts the animation loop
   start: ->
-    @animationLoopDisabled= false;
+    @animationLoopDisabled= false
     @animationLoop()
 
 
@@ -111,7 +114,7 @@ class window.BgSlideShow
 
   # waits for the given time and then calls @animate
   timeOutAnimate: (wait) ->
-    f = => @animationLoop();
+    f = => @animationLoop()
     window.setTimeout f, wait * 1000
 
   # set the class to element and fadeOut to the other element
@@ -127,7 +130,8 @@ class window.BgSlideShow
     # sets the new background-class
     fadeInElement.className = "#{classname} bgssFadeIn"
     fadeInElement.style.zIndex = -999
-    fadeInElement.style.webkitAnimationDuration = "#{@bgssConfig.animationDuration}s"
+    fadeInElement.style.webkitAnimationDuration =
+      "#{@bgssConfig.animationDuration}s"
     fadeInElement.style.AnimationDuration = @bgssConfig.animationDuration
 
     # move the element under fadeInElement
