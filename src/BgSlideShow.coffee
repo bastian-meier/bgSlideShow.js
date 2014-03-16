@@ -5,6 +5,7 @@ class window.BgSlideShow
     animationDuration: 1
   }
 
+
   # the constructor takes an array of objects like this:
   # {className: 'bg-class-name', duration: 4000}
   # duration in ms
@@ -54,6 +55,7 @@ class window.BgSlideShow
       # creating style tag
       style = document.createElement "style"
       style.id = "bg-slide-show-style"
+      # all the neede css code gets inserted
       style.innerHTML = '@-webkit-keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}}@keyframes bgssFadeIn{0%{opacity:0}100%{opacity:1}}.bgssFadeIn{-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:bgssFadeIn;animation-name:bgssFadeIn}'
       # append style tag to head
       document.getElementsByTagName("head")[0].appendChild style
