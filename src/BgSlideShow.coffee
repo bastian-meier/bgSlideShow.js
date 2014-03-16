@@ -4,7 +4,7 @@ class window.BgSlideShow
   bgssConfig: {
     animationDuration: 1
   }
-
+  
 
   # the constructor takes an array of objects like this:
   # {className: 'bg-class-name', duration: 4000}

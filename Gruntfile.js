@@ -27,11 +27,18 @@ module.exports = function (grunt) {
                 base: 'demo'
             },
             src: ['**']
+        },
+        watch: {
+            src: {
+                files: ['src/*.coffee'],
+                tasks: ['default']
+            }
         }
     });
     grunt.loadNpmTasks('grunt-coffeelint');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-gh-pages');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('default', ['coffeelint', 'coffee', 'uglify']);
 }
