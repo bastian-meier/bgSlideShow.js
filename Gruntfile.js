@@ -11,8 +11,7 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    'src/BgSlideShow.js': 'src/BgSlideShow.coffee',
-                    'demo/BgSlideShow.js': 'src/BgSlideShow.coffee'
+                    'src/BgSlideShow.js': 'src/BgSlideShow.coffee'
                 }
             }
         },
@@ -20,6 +19,14 @@ module.exports = function (grunt) {
             dist: {
                 src: 'src/BgSlideShow.js',
                 dest: 'dist/BgSlideShow.min.js'
+            }
+        },
+        copy: {
+            main: {
+                files: [
+                    // includes files within path
+                    {expand: true, src: ['src/*'], dest: 'demo/*', filter: 'isFile'}
+                ]
             }
         },
         'gh-pages': {
@@ -38,7 +45,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-coffeelint');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('default', ['coffeelint', 'coffee', 'uglify']);
+    grunt.registerTask('default', ['coffeelint', 'coffee', 'copy', 'uglify']);
 }
