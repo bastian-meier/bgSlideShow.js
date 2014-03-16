@@ -25,7 +25,8 @@ module.exports = function (grunt) {
             main: {
                 files: [
                     // includes files within path
-                    {expand: true, src: ['src/*'], dest: 'demo/*', filter: 'isFile'}
+                    {expand: true, flatten: true, src: ['src/BgSlideShow.js'], dest: 'demo/', filter: 'isFile'},
+                    {expand: true, flatten: true, src: ['src/BgSlideShow.js.map'], dest: 'demo/', filter: 'isFile'}
                 ]
             }
         },
