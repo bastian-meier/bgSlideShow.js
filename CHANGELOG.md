@@ -1,8 +1,8 @@
-## 0.0.1
-added grunt to the porject  
+## 0.1.0
+added grunt to the porject
 
 ## 0.0.4
-completed css in javascript file. it gets inserted in a head <style> tag at init.
+completed css in javascript file. it gets inserted in a head '<style>' tag at init.
 
 ## 0.0.3
 animation method changed, the new element is now allways above the old object
