@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         watch: {
             src: {
                 files: ['src/*.coffee'],
-                tasks: ['default']
+                tasks: ['_watch']
             }
         }
     });
@@ -49,4 +49,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('default', ['coffeelint', 'coffee', 'copy', 'uglify']);
+    grunt.registerTask('_watch', ['coffeelint', 'coffee']);
 }
