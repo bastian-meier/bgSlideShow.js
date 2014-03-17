@@ -93,7 +93,6 @@
       if (this.animationLoopDisabled === false) {
         index = this.animationCounter % this.animations.length;
         this.animationCounter++;
-        console.log("test " + this.animationCounter);
         this.setClass(this.animations[index].className);
         return this.timeOutAnimate(this.animations[index].duration);
       }

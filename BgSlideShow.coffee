@@ -105,8 +105,6 @@ class window.BgSlideShow
       index = @animationCounter % @animations.length
       @animationCounter++
 
-      console.log "test #{@animationCounter}"
-
       # set the class to the element and fades the other element out
       @setClass(@animations[index].className)
 
